@@ -20,6 +20,7 @@ export default {
     {
       name: 'Slider bar',
       type: SliderBar,
+      event: 'slider1',
       sheet: 'img/sprites.json',
       x: 100,
       y: 100,
@@ -39,8 +40,13 @@ export default {
         sprite_off: 'slider_back.png'
       },
       dot: {
-        margin_x: 100,
-        margin_y: 100,
+        anchor: {
+          x: 0.5,
+          y: 0.5
+        },
+        margin_x: 10,
+        margin_y: 10,
+        cursor: true,
         sprite: 'slider_dot.png'
       },
       icon: {

@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import {mobileCheck, mobileAndTabletCheck} from './utils';
 
 export default class GameEngine {
   constructor(config) {
@@ -15,6 +16,10 @@ export default class GameEngine {
     // with a fallback to a canvas render. It will also setup the ticker
     // and the root stage PIXI.Container
     this.app = new PIXI.Application(this.config.pixiConfig);
+    this.app.stage.hitArea = new PIXI.Rectangle(0, 0, this.config.pixiConfig.width, this.config.pixiConfig.height);
+
+    this.isMobile = mobileCheck();
+    this.isTabletOrMobile = mobileAndTabletCheck();
 
     console.log('GameEngine: PIXI Initialized');
   }
@@ -53,6 +58,11 @@ export default class GameEngine {
     // can then insert into the DOM
     document.body.appendChild(this.app.view);
     console.log('GameEngine: PIXI showed');
+  }
+
+  dispatch(event, data) {
+    console.log('GameEngine: dispatch ' + event + ' ' + data);
+    //TODO Events
   }
 
 }

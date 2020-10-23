@@ -261,3 +261,11 @@ textarea {
   }
 }
 
+/* Quick solution for mobile devices */
+p {
+  padding: 0 5%;
+  text-align: center;
+}
+canvas {
+  width:100%!important;
+}
